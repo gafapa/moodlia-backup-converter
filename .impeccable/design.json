@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-01T00:00:00+02:00",
+  "title": "Design System: MoodlIA Backup Converter",
+  "extensions": {
+    "colorMeta": {
+      "archive-paper": {
+        "role": "neutral",
+        "displayName": "Archive Paper",
+        "canonical": "#f7f3e9",
+        "tonalRamp": ["oklch(15% 0.015 85)", "oklch(27% 0.015 85)", "oklch(39% 0.015 85)", "oklch(51% 0.015 85)", "oklch(63% 0.015 85)", "oklch(75% 0.015 85)", "oklch(87% 0.015 85)", "oklch(95% 0.015 85)"]
+      },
+      "archive-paper-deep": {
+        "role": "neutral",
+        "displayName": "Deep Archive Paper",
+        "canonical": "#ece5d7",
+        "tonalRamp": ["oklch(15% 0.025 85)", "oklch(27% 0.025 85)", "oklch(39% 0.025 85)", "oklch(51% 0.025 85)", "oklch(63% 0.025 85)", "oklch(75% 0.025 85)", "oklch(87% 0.025 85)", "oklch(95% 0.025 85)"]
+      },
+      "archive-ink": {
+        "role": "neutral",
+        "displayName": "Archive Ink",
+        "canonical": "#15233a",
+        "tonalRamp": ["oklch(15% 0.050 255)", "oklch(27% 0.050 255)", "oklch(39% 0.050 255)", "oklch(51% 0.050 255)", "oklch(63% 0.050 255)", "oklch(75% 0.050 255)", "oklch(87% 0.050 255)", "oklch(95% 0.050 255)"]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Muted Ink",
+        "canonical": "#627084",
+        "tonalRamp": ["oklch(15% 0.040 255)", "oklch(27% 0.040 255)", "oklch(39% 0.040 255)", "oklch(51% 0.040 255)", "oklch(63% 0.040 255)", "oklch(75% 0.040 255)", "oklch(87% 0.040 255)", "oklch(95% 0.040 255)"]
+      },
+      "ledger-line": {
+        "role": "neutral",
+        "displayName": "Ledger Line",
+        "canonical": "#c7c0b3",
+        "tonalRamp": ["oklch(15% 0.020 85)", "oklch(27% 0.020 85)", "oklch(39% 0.020 85)", "oklch(51% 0.020 85)", "oklch(63% 0.020 85)", "oklch(75% 0.020 85)", "oklch(87% 0.020 85)", "oklch(95% 0.020 85)"]
+      },
+      "ledger-line-dark": {
+        "role": "neutral",
+        "displayName": "Dark Ledger Line",
+        "canonical": "#8d8a83",
+        "tonalRamp": ["oklch(15% 0.012 75)", "oklch(27% 0.012 75)", "oklch(39% 0.012 75)", "oklch(51% 0.012 75)", "oklch(63% 0.012 75)", "oklch(75% 0.012 75)", "oklch(87% 0.012 75)", "oklch(95% 0.012 75)"]
+      },
+      "action-cobalt": {
+        "role": "primary",
+        "displayName": "Action Cobalt",
+        "canonical": "#1557d6",
+        "tonalRamp": ["oklch(15% 0.200 260)", "oklch(27% 0.200 260)", "oklch(39% 0.200 260)", "oklch(51% 0.200 260)", "oklch(63% 0.200 260)", "oklch(75% 0.200 260)", "oklch(87% 0.200 260)", "oklch(95% 0.200 260)"]
+      },
+      "action-cobalt-dark": {
+        "role": "primary",
+        "displayName": "Deep Action Cobalt",
+        "canonical": "#0c378a",
+        "tonalRamp": ["oklch(15% 0.150 260)", "oklch(27% 0.150 260)", "oklch(39% 0.150 260)", "oklch(51% 0.150 260)", "oklch(63% 0.150 260)", "oklch(75% 0.150 260)", "oklch(87% 0.150 260)", "oklch(95% 0.150 260)"]
+      },
+      "inspection-orange": {
+        "role": "secondary",
+        "displayName": "Inspection Orange",
+        "canonical": "#e6532f",
+        "tonalRamp": ["oklch(15% 0.180 35)", "oklch(27% 0.180 35)", "oklch(39% 0.180 35)", "oklch(51% 0.180 35)", "oklch(63% 0.180 35)", "oklch(75% 0.180 35)", "oklch(87% 0.180 35)", "oklch(95% 0.180 35)"]
+      },
+      "inspection-amber": {
+        "role": "secondary",
+        "displayName": "Inspection Amber",
+        "canonical": "#f4c956",
+        "tonalRamp": ["oklch(15% 0.140 90)", "oklch(27% 0.140 90)", "oklch(39% 0.140 90)", "oklch(51% 0.140 90)", "oklch(63% 0.140 90)", "oklch(75% 0.140 90)", "oklch(87% 0.140 90)", "oklch(95% 0.140 90)"]
+      },
+      "completion-green": {
+        "role": "tertiary",
+        "displayName": "Completion Green",
+        "canonical": "#1f7a57",
+        "tonalRamp": ["oklch(15% 0.110 160)", "oklch(27% 0.110 160)", "oklch(39% 0.110 160)", "oklch(51% 0.110 160)", "oklch(63% 0.110 160)", "oklch(75% 0.110 160)", "oklch(87% 0.110 160)", "oklch(95% 0.110 160)"]
+      },
+      "paper-white": {
+        "role": "neutral",
+        "displayName": "Paper White",
+        "canonical": "#fffef9",
+        "tonalRamp": ["oklch(15% 0.008 90)", "oklch(27% 0.008 90)", "oklch(39% 0.008 90)", "oklch(51% 0.008 90)", "oklch(63% 0.008 90)", "oklch(75% 0.008 90)", "oklch(87% 0.008 90)", "oklch(95% 0.008 90)"]
+      },
+      "blocker-red": {
+        "role": "tertiary",
+        "displayName": "Blocker Red",
+        "canonical": "#a93620",
+        "tonalRamp": ["oklch(15% 0.160 35)", "oklch(27% 0.160 35)", "oklch(39% 0.160 35)", "oklch(51% 0.160 35)", "oklch(63% 0.160 35)", "oklch(75% 0.160 35)", "oklch(87% 0.160 35)", "oklch(95% 0.160 35)"]
+      },
+      "disabled-slate": {
+        "role": "neutral",
+        "displayName": "Disabled Slate",
+        "canonical": "#a9afba",
+        "tonalRamp": ["oklch(15% 0.025 255)", "oklch(27% 0.025 255)", "oklch(39% 0.025 255)", "oklch(51% 0.025 255)", "oklch(63% 0.025 255)", "oklch(75% 0.025 255)", "oklch(87% 0.025 255)", "oklch(95% 0.025 255)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Editorial Display", "purpose": "The page thesis and no other copy." },
+      "headline": { "displayName": "Milestone Headline", "purpose": "Inspection and completion milestones." },
+      "title": { "displayName": "Station Title", "purpose": "Operational section headings." },
+      "body": { "displayName": "Operational Body", "purpose": "Direct explanations and supporting copy." },
+      "label": { "displayName": "Document Label", "purpose": "Uppercase archival labels and categories." },
+      "mono": { "displayName": "Evidence Mono", "purpose": "Indices, status, archive facts, and procedural metadata." }
+    },
+    "shadows": [
+      { "name": "sheet-lift", "value": "0 18px 60px rgb(21 35 58 / 10%)", "purpose": "Broad structural lift under the workbench and report sheet." },
+      { "name": "action-lift", "value": "4px 7px 16px rgb(21 35 58 / 28%)", "purpose": "Default depth for the primary conversion action." },
+      { "name": "action-lift-hover", "value": "6px 10px 20px rgb(21 35 58 / 32%)", "purpose": "Stronger primary-action hover response." },
+      { "name": "inspection-glow", "value": "6px 8px 14px rgb(244 201 86 / 55%)", "purpose": "Warm marker glow behind the archive glyph." },
+      { "name": "completion-lift", "value": "8px 12px 28px rgb(31 122 87 / 20%)", "purpose": "Success-colored lift under the prepared-download drawer." }
+    ],
+    "motion": [
+      { "name": "control-state", "value": "160ms ease", "purpose": "Drop-zone border, background, and movement feedback." },
+      { "name": "progress", "value": "240ms ease", "purpose": "Horizontal progress-rule scaling." },
+      { "name": "sheet-reveal", "value": "420ms cubic-bezier(0.2, 0.7, 0.2, 1)", "purpose": "Inspection sheet entrance from 18px below." },
+      { "name": "completion-reveal", "value": "520ms cubic-bezier(0.18, 0.75, 0.2, 1)", "purpose": "Completion drawer entrance from 20px below with subtle scale." },
+      { "name": "processing-spin", "value": "800ms linear infinite", "purpose": "Conversion-in-progress icon rotation." },
+      { "name": "reduced-motion", "value": "0.01ms", "purpose": "Effectively removes transitions and repeated animation when reduced motion is requested." }
+    ],
+    "breakpoints": [
+      { "name": "stacked-desk", "value": "880px" },
+      { "name": "compact-mobile", "value": "600px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Stage Tab",
+      "kind": "nav",
+      "refersTo": "stage-tab",
+      "description": "A numbered square tab that labels each stage of the archive workflow.",
+      "html": "<p class=\"ds-stage-tab\"><span>02</span> Informe de inspección</p>",
+      "css": ".ds-stage-tab { display: flex; width: fit-content; min-height: 30px; margin: 0; align-items: center; gap: 10px; padding-right: 12px; border: 1px solid var(--blue); color: var(--blue-dark); font-family: \"Cascadia Code\", Consolas, monospace; font-size: 12px; font-weight: 700; } .ds-stage-tab span { display: inline-grid; width: 32px; align-self: stretch; place-items: center; background: var(--blue); color: white; }"
+    },
+    {
+      "name": "File Aperture",
+      "kind": "input",
+      "refersTo": "file-aperture",
+      "description": "A ruled-paper drop target for selecting or replacing a local Moodle archive.",
+      "html": "<div class=\"ds-file-aperture\"><span class=\"ds-file-glyph\"><svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z\"/><path d=\"M2 10h20\"/></svg></span><strong>Arrastra aquí una copia .mbz</strong><small>GZIP TAR, ZIP o TAR · máximo 768 MB</small></div>",
+      "css": ".ds-file-aperture { display: grid; min-height: 230px; padding: 30px; place-items: center; align-content: center; gap: 16px; border: 1px dashed var(--line-dark); background: linear-gradient(90deg, transparent 31px, rgb(21 87 214 / 11%) 32px, transparent 33px), linear-gradient(var(--paper) 31px, rgb(21 35 58 / 7%) 32px) 0 0 / 100% 32px; color: var(--ink); text-align: center; transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease; } .ds-file-aperture.ds-is-dragging { border-color: var(--blue); background-color: #eaf0fb; transform: translateY(-2px); } .ds-file-aperture.ds-has-file { border-style: solid; } .ds-file-glyph { display: grid; width: 58px; height: 58px; place-items: center; background: var(--ink); color: var(--white); box-shadow: 6px 8px 14px rgb(244 201 86 / 55%); } .ds-file-aperture strong { display: block; font-family: \"Newsreader\", Georgia, serif; font-size: 20px; } .ds-file-aperture small { color: var(--ink-muted); font: 12px \"Segoe UI\", sans-serif; }"
+    },
+    {
+      "name": "Version Selector",
+      "kind": "input",
+      "refersTo": "version-option-selected",
+      "description": "A contiguous three-cell target ledger with cobalt selection and an amber inspection mark.",
+      "html": "<div class=\"ds-version-selector\"><label><input type=\"radio\" name=\"target\"><span>Moodle</span><strong>4.5</strong><small>LTS</small></label><label class=\"ds-selected\"><input type=\"radio\" name=\"target\" checked><span>Moodle</span><strong>4.1</strong></label><label><input type=\"radio\" name=\"target\"><span>Moodle</span><strong>3.11</strong></label></div>",
+      "css": ".ds-version-selector { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line-dark); } .ds-version-selector label { position: relative; display: grid; min-height: 96px; padding: 16px 12px; align-content: end; border-right: 1px solid var(--line); background: var(--white); color: var(--ink); cursor: pointer; } .ds-version-selector label:last-child { border-right: 0; } .ds-version-selector label:has(input:focus-visible) { outline: 3px solid var(--amber); outline-offset: 3px; } .ds-version-selector input { position: absolute; opacity: 0; } .ds-version-selector .ds-selected { background: var(--blue); color: white; box-shadow: inset 0 5px 0 var(--amber); } .ds-version-selector span { font-size: 9px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; } .ds-version-selector strong { font-family: \"Newsreader\", Georgia, serif; font-size: 28px; line-height: 1; } .ds-version-selector small { position: absolute; top: 10px; right: 9px; padding: 2px 5px; background: var(--amber); color: var(--ink); font-size: 8px; font-weight: 900; }"
+    },
+    {
+      "name": "Primary Conversion Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The consequential conversion action, enabled only after compatibility blockers are resolved.",
+      "html": "<button class=\"ds-btn-primary\"><svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m12 3-1.9 5.1L5 10l5.1 1.9L12 17l1.9-5.1L19 10l-5.1-1.9Z\"/></svg><span>Convertir para Moodle 4.1</span></button>",
+      "css": ".ds-btn-primary { display: flex; width: 100%; min-height: 54px; padding: 0 18px; align-items: center; justify-content: center; gap: 10px; border: 0; background: var(--blue); color: white; font-family: \"Segoe UI\", sans-serif; font-size: 14px; font-weight: 800; box-shadow: 4px 7px 16px rgb(21 35 58 / 28%); cursor: pointer; } .ds-btn-primary:hover:not(:disabled) { background: var(--blue-dark); transform: translate(-1px, -1px); box-shadow: 6px 10px 20px rgb(21 35 58 / 32%); } .ds-btn-primary:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; } .ds-btn-primary:disabled { background: #a9afba; box-shadow: none; cursor: not-allowed; }"
+    },
+    {
+      "name": "Decision Checkbox",
+      "kind": "input",
+      "refersTo": "decision-checkbox",
+      "description": "A bordered approval row used when conversion requires explicit consent to data loss.",
+      "html": "<label class=\"ds-check-row\"><input type=\"checkbox\" checked><span class=\"ds-check-control\"><svg viewBox=\"0 0 24 24\" width=\"15\" height=\"15\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3\" aria-hidden=\"true\"><path d=\"m20 6-11 11-5-5\"/></svg></span><span><strong>Eliminar 1 actividad incompatible</strong><small>Se quitarán también sus referencias conocidas.</small></span></label>",
+      "css": ".ds-check-row { position: relative; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 12px; min-height: 68px; padding: 14px; align-items: start; border: 1px solid var(--line); color: var(--ink); font-family: \"Segoe UI\", sans-serif; cursor: pointer; } .ds-check-row:hover { border-color: var(--blue); } .ds-check-row:has(input:focus-visible) { outline: 3px solid var(--amber); outline-offset: 3px; } .ds-check-row input { position: absolute; opacity: 0; } .ds-check-control { display: grid; width: 24px; height: 24px; place-items: center; border: 1px solid var(--blue); background: var(--blue); color: white; } .ds-check-row strong, .ds-check-row small { display: block; } .ds-check-row strong { font-size: 13px; line-height: 1.35; } .ds-check-row small { margin-top: 5px; color: var(--ink-muted); font-size: 11px; line-height: 1.4; }"
+    },
+    {
+      "name": "Verdict Stamp",
+      "kind": "chip",
+      "refersTo": "verdict-blocked",
+      "description": "A slightly rotated inspection stamp that reports whether conversion decisions remain.",
+      "html": "<div class=\"ds-verdict ds-blocked\"><svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m21.73 18-8-14a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z\"/><path d=\"M12 9v4\"/><path d=\"M12 17h.01\"/></svg><span>1 bloqueo</span></div>",
+      "css": ".ds-verdict { display: flex; width: fit-content; min-height: 48px; padding: 0 16px; align-items: center; gap: 9px; border: 2px solid currentColor; font-family: \"Cascadia Code\", Consolas, monospace; font-size: 12px; font-weight: 800; text-transform: uppercase; transform: rotate(-1deg); } .ds-verdict.ds-blocked { color: #a93620; }"
+    },
+    {
+      "name": "Manifest Strip",
+      "kind": "custom",
+      "refersTo": "manifest-strip",
+      "description": "An ink-filled ledger summarizing the archive facts that frame the inspection decision.",
+      "html": "<dl class=\"ds-manifest\"><div><dt>Origen</dt><dd>5.0</dd></div><div><dt>Destino</dt><dd>Moodle 4.1</dd></div><div><dt>Formato</dt><dd>ZIP</dd></div><div><dt>Actividades</dt><dd>2</dd></div><div><dt>Avisos</dt><dd>0</dd></div></dl>",
+      "css": ".ds-manifest { display: grid; grid-template-columns: 1.2fr 1.2fr 1fr 1fr 1fr; margin: 0; border: 1px solid var(--line-dark); background: var(--ink); color: white; } .ds-manifest div { padding: 14px 17px; border-right: 1px solid #526077; } .ds-manifest div:last-child { border-right: 0; } .ds-manifest dt { color: #9eacbd; font-family: \"Segoe UI\", sans-serif; font-size: 9px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; } .ds-manifest dd { margin: 4px 0 0; font-family: \"Cascadia Code\", Consolas, monospace; font-size: 14px; font-weight: 700; white-space: nowrap; } @media (max-width: 600px) { .ds-manifest { grid-template-columns: repeat(2, 1fr); } .ds-manifest div:nth-child(2n) { border-right: 0; } .ds-manifest div:last-child { grid-column: 1 / -1; } }"
+    },
+    {
+      "name": "Completion Drawer",
+      "kind": "card",
+      "refersTo": "completion-drawer",
+      "description": "The prepared-archive state, combining a green seal with primary and report downloads.",
+      "html": "<section class=\"ds-completion\"><div class=\"ds-completion-seal\"><svg viewBox=\"0 0 24 24\" width=\"34\" height=\"34\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m20 6-11 11-5-5\"/></svg></div><div><h3>La conversión está lista.</h3><p>Descarga la copia y conserva el informe junto a ella.</p></div><button>Descargar .mbz</button></section>",
+      "css": ".ds-completion { display: grid; grid-template-columns: 70px minmax(0, 1fr) auto; gap: 24px; padding: 28px; align-items: center; border: 2px solid var(--green); background: #eff9f3; color: var(--ink); box-shadow: 8px 12px 28px rgb(31 122 87 / 20%); } .ds-completion-seal { display: grid; width: 64px; height: 64px; place-items: center; border: 3px double var(--green); border-radius: 50%; color: var(--green); transform: rotate(-7deg); } .ds-completion h3 { margin: 0; font-family: \"Newsreader\", Georgia, serif; font-size: 30px; font-weight: 500; line-height: 1.05; } .ds-completion p { margin: 8px 0 0; color: var(--ink-muted); font: 13px/1.55 \"Segoe UI\", sans-serif; } .ds-completion button { min-height: 50px; padding: 0 15px; border: 0; background: var(--green); color: white; font-weight: 800; cursor: pointer; } .ds-completion button:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Archive Conservation Desk",
+    "overview": "MoodlIA Backup Converter feels like a working conservation table for a fragile technical archive. Warm ruled paper, deep institutional ink, square folder tabs, and evidence marks turn the workflow into an inspection record rather than a generic upload wizard. The atmosphere is calm, exacting, and materially grounded.\n\nThe interface is dense enough to support consequential decisions but never dashboard-like. It moves from opening a backup, through compatibility evidence and explicit approval of loss, to an auditable download. Color and elevation are deliberately scarce so that selection, risk, and completion retain their meaning.",
+    "keyCharacteristics": [
+      "Warm archive paper with a subtle 32px ruled baseline.",
+      "Deep ink masthead and data strips that frame the work as an official record.",
+      "Cobalt actions and selected states, with amber accents that mark inspected choices.",
+      "Orange and red reserved for inspection, progress, blockers, and destructive risk.",
+      "Square sheets, tabs, controls, and borders; only status dots and completion seals are round.",
+      "Editorial serif headlines paired with pragmatic sans-serif copy and monospaced evidence."
+    ],
+    "rules": [
+      { "name": "The Cobalt Is Consent Rule", "body": "Use cobalt for selection, navigation through the workflow, and user-authorized action; do not use it as ambient decoration.", "section": "colors" },
+      { "name": "The Inspection Mark Rule", "body": "Orange, amber, and blocker red behave like annotations on a record: compact, high-signal, and tied to review or risk.", "section": "colors" },
+      { "name": "The Evidence Has a Separate Voice Rule", "body": "Use monospaced type only for machine state, indices, archive facts, and procedural labels—not for ordinary explanatory prose.", "section": "typography" },
+      { "name": "The Serif Carries Meaning Rule", "body": "Newsreader belongs to the page thesis, milestone headings, file names, and version numerals; it should not spread into controls or dense findings copy.", "section": "typography" },
+      { "name": "The Shared Baseline Rule", "body": "In split work areas, align the primary action across the complete sheet rather than attaching separate actions to each panel.", "section": "layout" },
+      { "name": "The Paper First, Lift Second Rule", "body": "Establish hierarchy with surface tone and borders before adding shadow; ordinary choices, findings, notes, and ledgers stay unraised.", "section": "elevation" },
+      { "name": "The Square Sheet Rule", "body": "Keep operational surfaces rectilinear. Do not soften the conservation-desk character with generic rounded cards or pill controls.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do use warm paper, deep ink, and visible ledger rules to preserve the archive-conservation setting.",
+      "Do reserve cobalt for deliberate action, selection, stage indexing, and active progress.",
+      "Do show compatibility evidence before presenting destructive approval or conversion as available.",
+      "Do use Newsreader for consequential editorial headings and Cascadia Code for evidence and machine state.",
+      "Do keep keyboard focus visibly amber and preserve the reduced-motion and forced-colors accommodations.",
+      "Do let desktop split panes collapse into a clear document sequence below 880px."
+    ],
+    "donts": [
+      "Don't introduce rounded dashboard cards, pill selectors, gradient hero panels, or soft SaaS-style controls.",
+      "Don't use orange, amber, red, or green as broad decorative fills; they are inspection and outcome signals.",
+      "Don't add shadows to routine rows, findings, labels, or target cells; borders and paper tones already establish their hierarchy.",
+      "Don't turn the workflow into a generic multi-step wizard or hide consequential evidence behind progressive disclosure.",
+      "Don't use monospaced text for normal prose or Newsreader for dense operational controls.",
+      "Don't add shipping raster imagery without recording its provenance; the current system ships no raster assets."
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.vite/
+coverage/
+.tmp/
+.impeccable/review/
+*.local
+*.tsbuildinfo
