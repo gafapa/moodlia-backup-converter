@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { createMoodleBackup, parseBackupArchive } from "./archive";
 import { convertBackup, inspectBackup } from "./converter";
+import { targetOrder, targetProfiles } from "./profiles";
 import type { ArchiveEntry, ConversionOptions } from "./types";
 
 const encoder = new TextEncoder();
@@ -49,7 +50,76 @@ function fixtureEntries(): ArchiveEntry[] {
   ];
 }
 
+function modernFixtureEntries(): ArchiveEntry[] {
+  return fixtureEntries().map((entry) => {
+    if (entry.path !== "moodle_backup.xml") return entry;
+    const xml = decoder
+      .decode(entry.data)
+      .replaceAll("2025041400", "2026042002")
+      .replaceAll(">5.0<", ">5.2.2<");
+    return xmlEntry(entry.path, xml);
+  });
+}
+
 describe("browser backup conversion", () => {
+  it("defines the proposed target branches with their official base versions", () => {
+    expect(targetOrder).toEqual(["5.1", "5.0", "4.5", "4.4", "4.3", "4.2", "4.1", "4.0", "3.11"]);
+    expect(Object.fromEntries(targetOrder.map((key) => [key, targetProfiles[key].moodleVersion]))).toEqual({
+      "5.1": "2025100600",
+      "5.0": "2025041400",
+      "4.5": "2024100700",
+      "4.4": "2024042200",
+      "4.3": "2023100900",
+      "4.2": "2023042400",
+      "4.1": "2022112800",
+      "4.0": "2022041900",
+      "3.11": "2021051700",
+    });
+  });
+
+  it("labels newly added profiles as experimental without blocking a downgrade", () => {
+    const fixture = makeArchive(modernFixtureEntries());
+    const archive = parseBackupArchive(toArrayBuffer(fixture.bytes));
+    const report = inspectBackup(archive, fixture.name, fixture.bytes.length, "5.1", safeOptions);
+
+    expect(report.canConvert).toBe(true);
+    expect(report.targetMaturity).toBe("experimental");
+    expect(report.findings).toContainEqual(expect.objectContaining({
+      code: "experimental-target-profile",
+      severity: "warning",
+    }));
+  });
+
+  it("blocks a target branch newer than the source backup", () => {
+    const fixture = makeArchive(fixtureEntries());
+    const archive = parseBackupArchive(toArrayBuffer(fixture.bytes));
+    const report = inspectBackup(archive, fixture.name, fixture.bytes.length, "5.1", safeOptions);
+
+    expect(report.canConvert).toBe(false);
+    expect(report.findings).toContainEqual(expect.objectContaining({
+      code: "source-older-than-target",
+      severity: "blocker",
+    }));
+  });
+
+  it("treats qbank as core from Moodle 5.0 and incompatible with Moodle 4.5", () => {
+    const entries = modernFixtureEntries();
+    const manifest = entries.find((entry) => entry.path === "moodle_backup.xml")!;
+    manifest.data = encoder.encode(decoder.decode(manifest.data).replace(
+      "</activities>",
+      "<activity><moduleid>44</moduleid><contextid>144</contextid><modulename>qbank</modulename><title>Question bank</title><directory>activities/qbank_44</directory></activity></activities>",
+    ));
+    entries.push(xmlEntry("activities/qbank_44/module.xml", "<module><id>44</id></module>"));
+    const fixture = makeArchive(entries);
+    const archive = parseBackupArchive(toArrayBuffer(fixture.bytes));
+
+    const moodleFive = inspectBackup(archive, fixture.name, fixture.bytes.length, "5.0", safeOptions);
+    const moodleFour = inspectBackup(archive, fixture.name, fixture.bytes.length, "4.5", safeOptions);
+
+    expect(moodleFive.activities.find((activity) => activity.module === "qbank")?.supported).toBe(true);
+    expect(moodleFour.activities.find((activity) => activity.module === "qbank")?.supported).toBe(false);
+  });
+
   it("blocks unsupported activities until removal is approved", () => {
     const fixture = makeArchive(fixtureEntries());
     const archive = parseBackupArchive(toArrayBuffer(fixture.bytes));

@@ -30,10 +30,12 @@ Users select a local `.mbz` file, choose an older Moodle target, inspect detecte
 
 - All archive reading, XML transformation, compression, and download generation happen in the browser.
 - Files are never uploaded by the application.
-- Initial target profiles are Moodle 4.5, 4.1, and 3.11.
+- Established target profiles are Moodle 4.5, 4.1, and 3.11.
+- Moodle 5.1, 5.0, 4.4, 4.3, 4.2, and 4.0 are experimental target profiles until representative backups complete real restore validation on each branch.
 - The app accepts gzip-compressed tar, ZIP, and uncompressed tar Moodle archives and emits a gzip-compressed tar `.mbz` file.
 - Browser memory limits constrain the practical maximum backup size. The interface must communicate this before processing.
 - A version-header rewrite alone is not considered a valid conversion. Known schema and activity incompatibilities must be detected.
+- A source backup older than the selected target is blocked because the converter does not perform forward Moodle migrations.
 - Destructive removal of unsupported activities requires explicit user approval.
 - Moodle 4.x question-bank structures targeting Moodle 3.11 are treated as a blocker unless the user explicitly enables an unsafe conversion.
 - Full compatibility with every third-party Moodle plugin is not guaranteed. Unknown plugin data is preserved and reported.

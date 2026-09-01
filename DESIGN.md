@@ -279,7 +279,7 @@ Inputs are exposed as document-handling instruments rather than generic form box
 
 - **File Aperture:** A 230px minimum-height ruled-paper field with a dashed dark ledger border, centered archive glyph, and descriptive file metadata. Once a file is present, the border becomes solid.
 - **Drag State:** Cobalt border, pale cobalt ground, and a two-pixel upward movement.
-- **Version Selector:** Three contiguous square cells inside a single ruled fieldset. Selection replaces white with cobalt and adds a five-pixel amber top inset.
+- **Version Selector:** A compact three-column ledger of square target cells inside one ruled fieldset. Selection replaces white with cobalt and adds a five-pixel amber top inset; concise badges distinguish LTS, legacy, and experimental profiles.
 - **Decision Checkbox:** A 24px square check control inside a full-width bordered row. Checked state fills cobalt; destructive approval fills orange.
 - **Focus:** The control row receives the shared three-pixel amber focus outline through its contained native input.
 

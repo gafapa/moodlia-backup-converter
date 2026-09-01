@@ -1,4 +1,6 @@
-export type TargetKey = "4.5" | "4.1" | "3.11";
+export type TargetKey = "5.1" | "5.0" | "4.5" | "4.4" | "4.3" | "4.2" | "4.1" | "4.0" | "3.11";
+
+export type TargetMaturity = "supported" | "experimental";
 
 export type ArchiveFormat = "tar.gz" | "zip" | "tar";
 
@@ -36,6 +38,7 @@ export interface InspectionReport {
   sourceBackupVersion: string;
   target: TargetKey;
   targetRelease: string;
+  targetMaturity: TargetMaturity;
   activities: ActivitySummary[];
   findings: Finding[];
   blockerCount: number;

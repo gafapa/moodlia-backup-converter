@@ -22,6 +22,7 @@ import type {
   WorkerRequest,
   WorkerResponse,
 } from "./lib/types";
+import { targetOrder, targetProfiles } from "./lib/profiles";
 
 const converterWorker = new Worker(new URL("./workers/converter.worker.ts", import.meta.url), { type: "module" });
 const initialOptions: ConversionOptions = {
@@ -56,7 +57,7 @@ export function App() {
   const requestCounter = useRef(0);
   const [file, setFile] = useState<File | null>(null);
   const [jobId, setJobId] = useState<string | null>(null);
-  const [target, setTarget] = useState<TargetKey>("4.1");
+  const [target, setTarget] = useState<TargetKey>("5.1");
   const [options, setOptions] = useState<ConversionOptions>(initialOptions);
   const [report, setReport] = useState<InspectionReport | null>(null);
   const [result, setResult] = useState<ConversionResult | null>(null);
@@ -304,15 +305,21 @@ export function App() {
             </div>
             <fieldset className="version-selector" disabled={busy}>
               <legend className="visually-hidden">Versión de Moodle de destino</legend>
-              {(["4.5", "4.1", "3.11"] as TargetKey[]).map((version) => (
-                <label key={version} className={target === version ? "selected" : ""}>
+              {targetOrder.map((version) => (
+                <label
+                  key={version}
+                  className={`${target === version ? "selected " : ""}${targetProfiles[version].maturity}`.trim()}
+                >
                   <input type="radio" name="target" value={version} checked={target === version} onChange={() => setTarget(version)} />
                   <span>Moodle</span>
                   <strong>{version}</strong>
-                  {version === "4.5" && <small>LTS</small>}
+                  {targetProfiles[version].badge && <small>{targetProfiles[version].badge}</small>}
                 </label>
               ))}
             </fieldset>
+            <p className="version-guidance">
+              <strong>Perfiles experimentales:</strong> requieren una restauración de prueba antes de utilizarlos con un curso real.
+            </p>
             <div className="memory-note">
               <Info size={18} aria-hidden="true" />
               <p><strong>Sin servidor.</strong> El navegador necesita memoria adicional para descomprimir y volver a empaquetar archivos grandes.</p>

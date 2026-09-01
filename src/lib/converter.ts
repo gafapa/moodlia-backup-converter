@@ -86,13 +86,55 @@ function containsModernQuestionBank(entries: Map<string, ArchiveEntry>): boolean
   return false;
 }
 
+function parseMoodleVersion(value: string): number | null {
+  if (!/^\d{10}$/.test(value)) return null;
+  const parsed = Number.parseInt(value, 10);
+  return Number.isSafeInteger(parsed) ? parsed : null;
+}
+
+function isSameMoodleBranch(sourceVersion: string, targetVersion: string): boolean {
+  return /^\d{10}$/.test(sourceVersion) && sourceVersion.slice(0, 8) === targetVersion.slice(0, 8);
+}
+
 function makeFindings(
   archive: ParsedArchive,
   target: TargetKey,
   options: ConversionOptions,
   activities: ActivitySummary[],
+  sourceMoodleVersion: string,
 ): Finding[] {
   const findings: Finding[] = [];
+  const profile = targetProfiles[target];
+  const sourceVersionNumber = parseMoodleVersion(sourceMoodleVersion);
+  const targetVersionNumber = parseMoodleVersion(profile.moodleVersion)!;
+
+  if (profile.maturity === "experimental") {
+    findings.push({
+      code: "experimental-target-profile",
+      severity: "warning",
+      title: `El perfil de Moodle ${target} es experimental`,
+      detail: "La transformación cubre diferencias conocidas, pero todavía no se ha verificado con una restauración completa en esta rama de Moodle.",
+      resolution: "Restaura el resultado primero en un curso de prueba vacío y conserva la copia original.",
+    });
+  }
+
+  if (sourceVersionNumber !== null && sourceVersionNumber < targetVersionNumber) {
+    findings.push({
+      code: "source-older-than-target",
+      severity: "blocker",
+      title: "La copia de origen es anterior al destino",
+      detail: `El manifiesto de origen (${sourceMoodleVersion}) es anterior al perfil Moodle ${target} (${profile.moodleVersion}). Este conversor no ejecuta migraciones hacia delante.`,
+      resolution: "Restaura la copia directamente en una versión igual o posterior, o selecciona un destino anterior al origen.",
+    });
+  } else if (isSameMoodleBranch(sourceMoodleVersion, profile.moodleVersion)) {
+    findings.push({
+      code: "same-target-branch",
+      severity: "info",
+      title: `La copia ya pertenece a la rama Moodle ${target}`,
+      detail: "Normalmente puedes restaurarla directamente sin convertirla. Usa el conversor solo si necesitas el informe o una adaptación concreta.",
+    });
+  }
+
   const unsupportedActivities = activities.filter((activity) => !activity.supported);
 
   for (const activity of unsupportedActivities) {
@@ -126,7 +168,7 @@ function makeFindings(
       detail: "Moodle 4.0 separó entradas y versiones de preguntas. Esa estructura no tiene una traducción fiable y general a Moodle 3.11.",
       resolution: options.allowUnsafeQuestionConversion
         ? "Los datos de preguntas se conservarán sin garantizar que Moodle 3.11 pueda restaurarlos."
-        : "Usa Moodle 4.1 o 4.5 como destino, o habilita conscientemente la conversión no segura.",
+        : "Usa un destino Moodle 4.0 o posterior, o habilita conscientemente la conversión no segura.",
     });
   }
 
@@ -149,8 +191,9 @@ export function inspectBackup(
 ): InspectionReport {
   const profile = targetProfiles[target];
   const manifest = readXml(archive.entries.get("moodle_backup.xml"), "moodle_backup.xml");
+  const sourceMoodleVersion = firstElementText(manifest, "moodle_version") || "Desconocida";
   const activities = getActivities(manifest, target);
-  const findings = makeFindings(archive, target, options, activities);
+  const findings = makeFindings(archive, target, options, activities, sourceMoodleVersion);
   const unsupportedCount = activities.filter((activity) => !activity.supported).length;
   const plannedChanges = [
     `Actualizar la cabecera de copia a Moodle ${profile.release}.`,
@@ -166,11 +209,12 @@ export function inspectBackup(
     sourceFileName,
     sourceSize,
     archiveFormat: archive.format,
-    sourceMoodleVersion: firstElementText(manifest, "moodle_version") || "Desconocida",
+    sourceMoodleVersion,
     sourceMoodleRelease: firstElementText(manifest, "moodle_release") || "Desconocida",
     sourceBackupVersion: firstElementText(manifest, "backup_version") || "Desconocida",
     target,
     targetRelease: profile.release,
+    targetMaturity: profile.maturity,
     activities,
     findings,
     blockerCount,

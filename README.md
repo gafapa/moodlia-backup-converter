@@ -6,9 +6,20 @@ No backup content is uploaded or sent to a server.
 
 ## Current target profiles
 
-- Moodle 4.5
-- Moodle 4.1
-- Moodle 3.11
+Established profiles:
+
+- Moodle 4.5 LTS
+- Moodle 4.1 LTS
+- Moodle 3.11 legacy
+
+Experimental profiles, which require a restore test before real use:
+
+- Moodle 5.1
+- Moodle 5.0
+- Moodle 4.4
+- Moodle 4.3
+- Moodle 4.2
+- Moodle 4.0
 
 The converter accepts gzip-compressed TAR, ZIP, and uncompressed TAR Moodle backups. It always emits a gzip-compressed TAR `.mbz` archive.
 
@@ -18,6 +29,8 @@ The converter accepts gzip-compressed TAR, ZIP, and uncompressed TAR Moodle back
 - Rejects traversal paths, case-insensitive duplicates, links, excessive entry counts, and unsafe expansion sizes.
 - Inspects `moodle_backup.xml` and inventories the activities in the backup.
 - Detects known unsupported core activities for the selected target.
+- Blocks attempts to use the converter as an upgrade path when the source branch is older than the selected target.
+- Clearly reports experimental target profiles that have not completed restore validation.
 - Requires explicit approval before removing unsupported activities and their known references.
 - Detects the Moodle 4.x question-bank structure when targeting Moodle 3.11 and blocks by default.
 - Removes selected XML fields introduced after the target release.
