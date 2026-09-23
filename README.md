@@ -85,3 +85,9 @@ The production output is written to `dist/` and can be hosted on any static file
 ## Privacy model
 
 The selected file is read through the browser File API and transferred to a dedicated Web Worker. The app does not include upload code, analytics, remote APIs, or persistence. Closing or reloading the page clears the working archive from memory.
+
+## License
+
+Copyright (C) 2026 Pablo Gallego.
+
+This project is free software released under the GNU General Public License version 3 or later. See `LICENSE`.
