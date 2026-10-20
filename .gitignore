@@ -6,3 +6,4 @@ coverage/
 .impeccable/review/
 *.local
 *.tsbuildinfo
+/.project-pages/

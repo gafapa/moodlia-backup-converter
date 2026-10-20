@@ -4,7 +4,19 @@ MoodlIA Backup Converter is a static web application that inspects a Moodle `.mb
 
 No backup content is uploaded or sent to a server.
 
-## Current target profiles
+[Status](#status) · [Getting started](#getting-started) · [Usage](#usage) · [Development](#development) · [Security and privacy](#security-and-privacy) · [Documentation](#documentation) · [License](#license)
+
+## Status
+
+Implemented browser-only converter. Established and experimental destination profiles are listed below. A generated archive still requires a restore test on the intended destination.
+
+## Getting started
+
+Use Node.js 22 or later. Run `npm ci` and `npm run dev`, open the local URL printed by Vite, choose a backup and destination profile, then review the proposed transformations before downloading.
+
+## Usage
+
+### Current target profiles
 
 Established profiles:
 
@@ -23,7 +35,7 @@ Experimental profiles, which require a restore test before real use:
 
 The converter accepts gzip-compressed TAR, ZIP, and uncompressed TAR Moodle backups. It always emits a gzip-compressed TAR `.mbz` archive.
 
-## What it does
+### What it does
 
 - Reads and validates the archive without extracting it to disk.
 - Rejects traversal paths, case-insensitive duplicates, links, excessive entry counts, and unsafe expansion sizes.
@@ -37,7 +49,7 @@ The converter accepts gzip-compressed TAR, ZIP, and uncompressed TAR Moodle back
 - Rewrites backup metadata to the selected compatibility profile.
 - Downloads the converted backup and a separate JSON transformation report.
 
-## Important limitations
+### Important limitations
 
 This tool cannot guarantee that Moodle will restore every converted backup. Moodle and third-party plugins validate their own data during restore, and plugin-specific downgrade migrations are not generally available.
 
@@ -73,7 +85,7 @@ npm run build
 
 The production output is written to `dist/` and can be hosted on any static file host. No runtime environment variables, API endpoints, database, or server functions are required.
 
-## Architecture
+### Architecture
 
 - `src/App.tsx`: user workflow, decisions, progress, and downloads.
 - `src/workers/converter.worker.ts`: isolated conversion orchestration.
@@ -82,9 +94,23 @@ The production output is written to `dist/` and can be hosted on any static file
 - `src/lib/profiles.ts`: target-version compatibility profiles.
 - `src/lib/converter.test.ts`: archive and conversion regression tests.
 
-## Privacy model
+## Security and privacy
+
+### Privacy model
 
 The selected file is read through the browser File API and transferred to a dedicated Web Worker. The app does not include upload code, analytics, remote APIs, or persistence. Closing or reloading the page clears the working archive from memory.
+
+## Documentation
+
+- [Project Pages](https://gafapa.github.io/moodlia-backup-converter/)
+
+Build the repository documentation portal with `python tools/build-project-page.py`. Its status comes from this README; purpose and first steps are maintained in `docs/project-page.json`. The `pages.yml` workflow publishes the portal without deploying the application or changing `moodlia.com`.
+
+Adapt Moodle backups for selected older destinations; [edX Converter](https://github.com/gafapa/moodlia-edx) handles Open edX exports instead.
+
+- [Source code](https://github.com/gafapa/moodlia-backup-converter)
+- [Issue tracker](https://github.com/gafapa/moodlia-backup-converter/issues)
+- [MoodlIA website](https://moodlia.com)
 
 ## License
 
