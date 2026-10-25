@@ -75,7 +75,13 @@ Run automated checks:
 
 ```bash
 npm run check
+npm audit --audit-level=moderate
 ```
+
+The 2026-10-25 development-tool security refresh locks Vite 6.4.5, Vitest
+5.0.5 and `source-map-js` 1.2.2. The complete npm audit reports zero known
+vulnerabilities. CI runs the tests, production build and moderate-or-higher
+dependency audit. Application dependencies and conversion behavior are unchanged.
 
 Create the deployable static site:
 
